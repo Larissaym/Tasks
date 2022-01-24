@@ -1,10 +1,7 @@
-/**
- * Server-URL
- */
 const SERVER = 'http://localhost:3000';
 
+
 function sendForm1(data) {
-    //DO NOT FORGET the return!
     return fetch(SERVER+'/api/todo/create', {
         method: 'POST',
         headers: {
@@ -16,8 +13,4 @@ function sendForm1(data) {
         .catch(err => {
             console.log(`Error occurred: ${err}`)
         })
-}
-
-function showAllToDos() {
-
 }

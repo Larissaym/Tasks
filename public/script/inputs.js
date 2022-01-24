@@ -8,31 +8,6 @@ const priority = document.getElementById('priority');
 const due_date = document.getElementById('due_date');
 const category = document.getElementById('category');
 
-
-// Check empty Fields - where check is required
-// function checkRequired(inputArr) {
-//     let isRequired = false;
-//     inputArr.forEach(function (input) {
-//         if (utilities.isEmpty(input)) {
-//             showError(`Input is required`);
-//             isRequired = true;
-//             ALL_INPUT_VALID = false;
-//         }else {
-//             showSuccess(input);
-//         }
-//     });
-//     return isRequired;
-// }
-
-// Validate form input elements from the validateLib.js
-// function validateForm() {
-//     if (!checkRequired([title, description,due_date])) {
-//         checkTitle(title, 3, 20);
-//         checkDescription(description, 5, 80);
-//         checkDueDate(due_date);
-//     }
-// }
-
 // Event listeners
 form.addEventListener('submit', function (e) {
     ALL_INPUT_VALID = true;

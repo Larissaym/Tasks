@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>To-Do</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link href="http://fonts.cdnfonts.com/css/enriqueta-2" rel="stylesheet">
+  <link href="style/style.css" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Telex' rel='stylesheet'>
+</head>
+<body>
+<div class="background">
+  <!-- NAVBAR -->
+  <header>
+    <nav class="navbar navbar-dark">
+      <div class="container-fluid d-flex justify-content-end">
+          <div class="navbar-nav">
+            <a class="nav-link" aria-current="page" href="#">Abmelden</a>
+          </div>
+      </div>
+    </nav>
+  </header>
+
+
+
+  <main class="container">
+    <!-- Title -->
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="text-center m-0">To-Do Liste</h2>
+      </div>
+    </div>
+    <!-- Add New -->
+    <div class="row">
+      <div class="col-md">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Neuer Eintrag
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Neuer Eintrag</h5>
+              </div>
+              <div class="modal-body">
+                <div class="container-fluid">
+                  <!-- Form-->
+                  <form id="form" class="row g-3 needs-validation">
+                    <div class="col-md-8">
+                      <label for="category" class="form-label">Thema</label>
+                      <select class="form-select" id="category" name="category" required>
+                        <option selected disabled value="">Thema wählen...</option>
+                        <option value="1">Tests</option>
+                        <option value="2">Generell</option>
+                        <option value="3">Schule</option>
+                        <option value="4">Arbeit</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Bitte wähle ein Thema
+                      </div>
+                    </div>
+
+                    <div class="col-md-4">
+                      <label for="priority" class="form-label">Priorität</label>
+                      <select class="form-select" id="priority" name="priority" required>
+                        <option selected disabled value="">Priorität wählen...</option>
+                        <option value="LOW">Low</option>
+                        <option value="NORMAL">Normal</option>
+                        <option value="IMPORTANT">Important</option>
+                        <option value="CRITICAL">Critical</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Bitte wähle eine Priorität
+                      </div>
+                    </div>
+
+                    <div class="col-md-12">
+                      <label for="title" class="form-label">Titel</label>
+                      <input type="text" name="title" class="form-control" id="title" required>
+                      <div class="invalid-feedback">
+                        Gib ein Titel ein
+                      </div>
+                    </div>
+
+                    <div class="col-md-12">
+                      <label for="due_date" class="form-label">Fälligkeitsdatum</label>
+                      <input type="text" class="form-control" id="due_date" name="due_date" required>
+                      <div class="invalid-feedback">
+                        Gib ein valides Datum ein. (TT.MM.JJJJ)
+                      </div>
+                    </div>
+
+                    <div class="col-md-12">
+                      <label for="description" class="form-label">Beschreibung</label>
+                      <input type="text" class="form-control" id="description" name="description">
+                      <div class="invalid-feedback">
+                        Gib eine Beschreibung ein
+                      </div>
+                    </div>
+
+                    <div class="col-md-12">
+                      <button class="btn btn-primary" type="submit">Eintragen</button>
+                    </div>
+
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Columns -->
+    <div class="row">
+      <div class="col-md-3">
+          <div class="test-column">
+            <h3>
+              Tests
+            </h3>
+            <hr>
+<!--            <div class="row">-->
+<!--              <div class="col-md-10">-->
+<!--                <p>-->
+<!--                  <strong>Wirtschaft – Mietvertrag</strong> </br>-->
+<!--                  <small><i>11.01.2022</i><br>-->
+<!--                    Ordner alle Seiten, Dossier und Übungen</small>-->
+<!--                </p>-->
+<!--              </div>-->
+<!--              <div class="col-md-1 p-0">-->
+<!--                <a href="">-->
+<!--                  <img src="img/trash.png" class="delete">-->
+<!--                </a>-->
+<!--              </div>-->
+<!--            </div>-->
+          </div>
+        <div class="test-column">
+          <h3>
+            Tests
+          </h3>
+          <hr>
+          <%
+          if(userData.length!=0){
+          var i=1;
+          userData.forEach(function(data){
+          %>
+          <div class="row">
+            <div class="col-md-10">
+              <p>
+                <strong><%=data.title %></strong> </br>
+                <small><i><%=data.due_date %></i><br>
+                  <%=data.description %></small>
+              </p>
+            </div>
+            <div class="col-md-1 p-0">
+              <a href="/api/todo/delete<%=data.id%">
+                <img src="img/trash.png" class="delete">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="to-do-column">
+          <h3>
+            Generell
+          </h3>
+          <hr>
+<!--          <div class="row">-->
+<!--            <div class="col-md-10">-->
+<!--              <p>-->
+<!--                Badezimmer putzen <br>-->
+<!--                <small><i>23.12.2021</i></small>-->
+<!--              </p>-->
+<!--            </div>-->
+<!--            <div class="col-md-1 p-0">-->
+<!--              <a href="">-->
+<!--                <img src="img/trash.png" class="delete">-->
+<!--              </a>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="row">-->
+<!--            <div class="col-md-10">-->
+<!--              <p>-->
+<!--                Geschenke kaufen <br>-->
+<!--                <small><i>24.12.2021</i></small>-->
+<!--              </p>-->
+<!--            </div>-->
+<!--            <div class="col-md-1 p-0">-->
+<!--              <a href="">-->
+<!--                <img src="img/trash.png" class="delete">-->
+<!--              </a>-->
+<!--            </div>-->
+<!--          </div>-->
+
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="to-do-column">
+          <h3>
+            Schule
+          </h3>
+          <hr>
+<!--          <div class="row">-->
+<!--            <div class="col-md-10">-->
+<!--              <p>-->
+<!--                Animation abschliessen <br>-->
+<!--                <small><i>03.01.2022</i></small>-->
+<!--              </p>-->
+<!--            </div>-->
+<!--            <div class="col-md-1 p-0">-->
+<!--              <a href="">-->
+<!--                <img src="img/trash.png" class="delete">-->
+<!--              </a>-->
+<!--            </div>-->
+<!--          </div>-->
+
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="to-do-column">
+          <h3>
+            Arbeit
+          </h3>
+          <hr>
+<!--          <div class="row">-->
+<!--            <div class="col-md-10">-->
+<!--              <p>-->
+<!--                Anrufbeantworter besprechen <br>-->
+<!--                <small><i>23.12.2021</i></small>-->
+<!--              </p>-->
+<!--            </div>-->
+<!--            <div class="col-md-1 p-0">-->
+<!--              <a href="">-->
+<!--                <img src="img/trash.png" class="delete">-->
+<!--              </a>-->
+<!--            </div>-->
+<!--          </div>-->
+        </div>
+      </div>
+    </div>
+  </main>
+
+</div>
+</body>
+<script src="script/network.js"></script>
+<script src="script/inputs.js"></script>
+<script src="public/script/to-dos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</html>

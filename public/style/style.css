@@ -1,0 +1,104 @@
+.background {
+    background-image:   linear-gradient(
+                        rgba(0, 0, 0, 0.9),
+                        rgba(0, 0, 0, 0.5)
+                        ),
+                        url('../img/fire.jpg');
+    background-size: cover;
+    min-height: 100vh;
+    background-attachment: fixed;
+}
+html,nav {
+    overflow-y: scroll !important;
+}
+body {
+    font-family: Helvetica, sans-serif;
+}
+header {
+    height: 7rem;
+}
+.container {
+    min-height: 100vh;
+}
+nav {
+    height: 4rem;
+}
+hr {
+    margin: 1.8rem 0;
+}
+h2, h3 {
+    font-family: 'Enriqueta', sans-serif !important;
+    color: white;
+}
+h2 {
+    margin: 7rem 0 2rem 0;
+}
+h3 {
+    font-size: 20px;
+    text-align: center;
+}
+p {
+    font-family: 'Telex', sans-serif;
+    margin: 0 0 2rem 0;
+}
+img {
+    width: 100%;
+}
+/* Form styling */
+.form-floating {
+    color: white;
+}
+.form-control {
+    background-color: transparent;
+}
+input, select {
+    background-color: transparent !important;
+    color: white !important;
+}
+button {
+    background:rgba(255,255,255,0.3) !important;
+    color: white !important;
+}
+.btn-primary, .btn-primary:focus {
+    border: none;
+    box-shadow: none;
+    outline: none;
+}
+.form-label {
+    color: white;
+}
+/* column Styling */
+.test-column, .to-do-column {
+    margin: 2rem 0 2rem 0;
+    color: white;
+    padding: 1rem;
+}
+.test-column {
+    background:rgba(255,255,255,0.3);
+}
+.to-do-column {
+    border: 1px solid rgba(255,255,255,0.3);
+}
+.delete {
+    opacity: 0.5;
+}
+.delete:hover {
+    opacity: 0.8;
+}
+/* Modal */
+.modal-header {
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    margin: 0 2rem;
+    color: white;
+}
+.modal-content {
+    background-image:   linear-gradient(
+            rgba(0, 0, 0, 0.9),
+            rgba(0, 0, 0, 0.9)
+    ),
+    url('../img/fire.jpg');
+    background-size: cover;
+}
+.modal-open {
+    padding-right: 0 !important;
+}

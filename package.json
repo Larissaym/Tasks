@@ -1,0 +1,36 @@
+{
+  "name": "garavaldi-modul",
+  "version": "1.0.0",
+  "description": "My Description is written here... For more information read the [docs](./docs/index.md).",
+  "main": "app.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Hello no test created yet\" && exit 1",
+    "build": "echo \"Script to build app for production\" && exit 1",
+    "start": "node ./app.js",
+    "devstart": "nodemon ./app.js -e \"js,html,hbs\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Larissaym/to-do.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Larissaym/to-do/issues"
+  },
+  "homepage": "https://github.com/Larissaym/to-do#readme",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "express": "^4.17.2",
+    "express-validator": "^6.14.0",
+    "moment": "^2.29.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
